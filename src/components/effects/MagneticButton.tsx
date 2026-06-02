@@ -66,7 +66,9 @@ export function MagneticButton({ children, className, variant = "primary", asChi
         styles,
         className,
       )}
-      {...(rest as never)}
+      onClick={rest.onClick}
+      type={rest.type as "button" | "submit" | "reset" | undefined}
+      disabled={rest.disabled}
     >
       {inner}
     </motion.button>
