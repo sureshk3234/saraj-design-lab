@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { projectBySlug, projects } from "@/data/projects";
+import { projectBySlug, projects, type Project } from "@/data/projects";
 import { ProjectCover } from "@/components/ui/ProjectCover";
 import { Reveal } from "@/components/effects/Reveal";
 
@@ -51,7 +51,7 @@ export const Route = createFileRoute("/projects/$slug")({
 });
 
 function CaseStudy() {
-  const { project: p } = Route.useLoaderData();
+  const { project: p } = Route.useLoaderData() as { project: Project };
   const idx = projects.findIndex((x) => x.slug === p.slug);
   const next = projects[(idx + 1) % projects.length];
 
