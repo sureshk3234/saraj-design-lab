@@ -17,6 +17,7 @@ import { ThemeProvider } from "../lib/theme";
 import { Nav } from "../components/layout/Nav";
 import { Footer } from "../components/layout/Footer";
 import { AuroraBackground } from "../components/effects/AuroraBackground";
+import { Scene3D } from "../components/effects/Scene3D";
 import { ScrollProgress } from "../components/effects/ScrollProgress";
 import { CustomCursor } from "../components/effects/CustomCursor";
 
@@ -134,6 +135,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <AuroraBackground />
+        <Scene3D />
         <ScrollProgress />
         <CustomCursor />
         <Nav />
