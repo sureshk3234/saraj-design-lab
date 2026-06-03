@@ -1,8 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { projectBySlug, projects, type Project } from "@/data/projects";
+import { getProjectImages } from "@/data/projectImages";
 import { ProjectCover } from "@/components/ui/ProjectCover";
 import { Reveal } from "@/components/effects/Reveal";
+
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
