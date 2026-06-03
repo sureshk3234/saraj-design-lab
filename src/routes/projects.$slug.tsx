@@ -119,29 +119,28 @@ function CaseStudy() {
                 <h2 className="mt-4 font-display text-5xl leading-[1] sm:text-6xl">Selected screens.</h2>
               </Reveal>
               <div className="mt-12 grid auto-rows-[260px] gap-5 sm:grid-cols-6">
-                {[0, 1, 2, 3, 4].map((i) => {
+                {(getProjectImages(p.slug)?.gallery ?? []).slice(0, 6).map((img, i) => {
                   const span = [
                     "sm:col-span-4 sm:row-span-2",
                     "sm:col-span-2",
                     "sm:col-span-2",
                     "sm:col-span-3",
                     "sm:col-span-3",
+                    "sm:col-span-6",
                   ][i];
                   return (
                     <Reveal key={i} delay={i * 0.05} className={span}>
-                      <div
-                        className="relative h-full overflow-hidden rounded-3xl"
-                        style={{
-                          background: `linear-gradient(${135 + i * 25}deg, ${p.cover.from}, ${p.cover.to})`,
-                        }}
-                      >
-                        <div className="grain absolute inset-0" />
-                        <div className="absolute inset-x-0 bottom-0 p-5 text-white/90">
-                          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/60">Frame 0{i + 1}</p>
-                          <p className="mt-1 font-display text-2xl">{p.title}</p>
-                        </div>
-                        <div className="absolute right-4 top-4 rounded-full bg-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white/80 backdrop-blur">
-                          {["Desktop", "Mobile", "System", "Animation", "Brand"][i]}
+                      <div className="group relative h-full overflow-hidden rounded-3xl bg-black/40">
+                        <img
+                          src={img.src}
+                          alt={img.alt}
+                          loading="lazy"
+                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                        <div className="absolute inset-x-0 bottom-0 p-5 text-white/95">
+                          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/70">Frame 0{i + 1}</p>
+                          <p className="mt-1 font-display text-2xl drop-shadow">{img.label}</p>
                         </div>
                       </div>
                     </Reveal>
