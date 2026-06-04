@@ -1,5 +1,6 @@
 // Centralized project imagery. Each project has a cover and a gallery.
 import reverieCover from "@/assets/projects/reverie-ai/cover.jpg";
+import reverieBefore from "@/assets/projects/reverie-ai/before.jpg";
 import reverie1 from "@/assets/projects/reverie-ai/g1.jpg";
 import reverie2 from "@/assets/projects/reverie-ai/g2.jpg";
 import reverie3 from "@/assets/projects/reverie-ai/g3.jpg";
@@ -8,6 +9,7 @@ import reverie5 from "@/assets/projects/reverie-ai/g5.jpg";
 import reverie6 from "@/assets/projects/reverie-ai/g6.jpg";
 
 import novaCover from "@/assets/projects/nova-agency/cover.jpg";
+import novaBefore from "@/assets/projects/nova-agency/before.jpg";
 import nova1 from "@/assets/projects/nova-agency/g1.jpg";
 import nova2 from "@/assets/projects/nova-agency/g2.jpg";
 import nova3 from "@/assets/projects/nova-agency/g3.jpg";
@@ -16,6 +18,7 @@ import nova5 from "@/assets/projects/nova-agency/g5.jpg";
 import nova6 from "@/assets/projects/nova-agency/g6.jpg";
 
 import luxeCover from "@/assets/projects/luxe-beauty/cover.jpg";
+import luxeBefore from "@/assets/projects/luxe-beauty/before.jpg";
 import luxe1 from "@/assets/projects/luxe-beauty/g1.jpg";
 import luxe2 from "@/assets/projects/luxe-beauty/g2.jpg";
 import luxe3 from "@/assets/projects/luxe-beauty/g3.jpg";
@@ -24,6 +27,7 @@ import luxe5 from "@/assets/projects/luxe-beauty/g5.jpg";
 import luxe6 from "@/assets/projects/luxe-beauty/g6.jpg";
 
 import fitCover from "@/assets/projects/fitzone/cover.jpg";
+import fitBefore from "@/assets/projects/fitzone/before.jpg";
 import fit1 from "@/assets/projects/fitzone/g1.jpg";
 import fit2 from "@/assets/projects/fitzone/g2.jpg";
 import fit3 from "@/assets/projects/fitzone/g3.jpg";
@@ -32,6 +36,7 @@ import fit5 from "@/assets/projects/fitzone/g5.jpg";
 import fit6 from "@/assets/projects/fitzone/g6.jpg";
 
 import bloomCover from "@/assets/projects/bloom-cafe/cover.jpg";
+import bloomBefore from "@/assets/projects/bloom-cafe/before.jpg";
 import bloom1 from "@/assets/projects/bloom-cafe/g1.jpg";
 import bloom2 from "@/assets/projects/bloom-cafe/g2.jpg";
 import bloom3 from "@/assets/projects/bloom-cafe/g3.jpg";
@@ -40,6 +45,7 @@ import bloom5 from "@/assets/projects/bloom-cafe/g5.jpg";
 import bloom6 from "@/assets/projects/bloom-cafe/g6.jpg";
 
 import skyCover from "@/assets/projects/skytravel/cover.jpg";
+import skyBefore from "@/assets/projects/skytravel/before.jpg";
 import sky1 from "@/assets/projects/skytravel/g1.jpg";
 import sky2 from "@/assets/projects/skytravel/g2.jpg";
 import sky3 from "@/assets/projects/skytravel/g3.jpg";
@@ -64,7 +70,11 @@ import yt5 from "@/assets/projects/youtube-growth-package/g5.jpg";
 import yt6 from "@/assets/projects/youtube-growth-package/g6.jpg";
 
 export type ProjectImage = { src: string; alt: string; label: string };
-export type ProjectImagery = { cover: ProjectImage; gallery: ProjectImage[] };
+export type ProjectImagery = {
+  cover: ProjectImage;
+  gallery: ProjectImage[];
+  beforeAfter?: { before: ProjectImage; after: ProjectImage };
+};
 
 export const projectImages: Record<string, ProjectImagery> = {
   "reverie-ai": {
@@ -77,6 +87,10 @@ export const projectImages: Record<string, ProjectImagery> = {
       { src: reverie5, alt: "Reverie AI social media post", label: "Social" },
       { src: reverie6, alt: "Reverie AI pricing page", label: "Pricing" },
     ],
+    beforeAfter: {
+      before: { src: reverieBefore, alt: "Reverie AI homepage before redesign — cluttered 2014-era layout", label: "Before" },
+      after: { src: reverieCover, alt: "Reverie AI homepage after redesign — modern editorial hero", label: "After" },
+    },
   },
   "nova-agency": {
     cover: { src: novaCover, alt: "Nova Agency hero with oversized type", label: "Website" },
@@ -88,6 +102,10 @@ export const projectImages: Record<string, ProjectImagery> = {
       { src: nova5, alt: "Nova Instagram grid", label: "Social" },
       { src: nova6, alt: "Nova editorial poster", label: "Print" },
     ],
+    beforeAfter: {
+      before: { src: novaBefore, alt: "Nova Agency homepage before — dated corporate 2012 layout", label: "Before" },
+      after: { src: novaCover, alt: "Nova Agency homepage after — confident editorial system", label: "After" },
+    },
   },
   "luxe-beauty": {
     cover: { src: luxeCover, alt: "Luxe Beauty boutique e-commerce hero", label: "Website" },
@@ -99,6 +117,10 @@ export const projectImages: Record<string, ProjectImagery> = {
       { src: luxe5, alt: "Luxe Beauty Instagram ad", label: "Ad" },
       { src: luxe6, alt: "Luxe Beauty color swatches", label: "System" },
     ],
+    beforeAfter: {
+      before: { src: luxeBefore, alt: "Luxe Beauty storefront before — busy discount-driven 2013 layout", label: "Before" },
+      after: { src: luxeCover, alt: "Luxe Beauty storefront after — elevated boutique experience", label: "After" },
+    },
   },
   fitzone: {
     cover: { src: fitCover, alt: "FitZone coaching dashboard", label: "Dashboard" },
@@ -110,6 +132,10 @@ export const projectImages: Record<string, ProjectImagery> = {
       { src: fit5, alt: "FitZone ad creative", label: "Ad" },
       { src: fit6, alt: "FitZone marketing site", label: "Marketing" },
     ],
+    beforeAfter: {
+      before: { src: fitBefore, alt: "FitZone dashboard before — cramped skeuomorphic interface", label: "Before" },
+      after: { src: fitCover, alt: "FitZone dashboard after — calm coaching cockpit", label: "After" },
+    },
   },
   "bloom-cafe": {
     cover: { src: bloomCover, alt: "Bloom Café website hero", label: "Website" },
@@ -121,6 +147,10 @@ export const projectImages: Record<string, ProjectImagery> = {
       { src: bloom5, alt: "Bloom Instagram post", label: "Social" },
       { src: bloom6, alt: "Bloom packaging design", label: "Packaging" },
     ],
+    beforeAfter: {
+      before: { src: bloomBefore, alt: "Bloom Café site before — homemade textured 2011 layout", label: "Before" },
+      after: { src: bloomCover, alt: "Bloom Café site after — warm modern editorial", label: "After" },
+    },
   },
   skytravel: {
     cover: { src: skyCover, alt: "SkyTravel booking landing page", label: "Website" },
@@ -132,6 +162,10 @@ export const projectImages: Record<string, ProjectImagery> = {
       { src: sky5, alt: "SkyTravel destination ad", label: "Ad" },
       { src: sky6, alt: "SkyTravel UI components", label: "System" },
     ],
+    beforeAfter: {
+      before: { src: skyBefore, alt: "SkyTravel booking site before — cluttered 2010 search interface", label: "Before" },
+      after: { src: skyCover, alt: "SkyTravel booking site after — focused, calm booking flow", label: "After" },
+    },
   },
   "amazon-listing-design": {
     cover: { src: amzCover, alt: "Amazon A+ product listing hero", label: "A+" },
