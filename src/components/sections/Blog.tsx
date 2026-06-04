@@ -25,9 +25,18 @@ export function Blog() {
             <Reveal key={p.title} delay={i * 0.05}>
               <article className="group relative h-full overflow-hidden rounded-3xl glass p-1">
                 <div className={`aspect-[16/10] rounded-[20px] bg-gradient-to-br ${p.accent} relative overflow-hidden`}>
-                  <div className="grain absolute inset-0" />
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    loading="lazy"
+                    width={1280}
+                    height={800}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                  <div className="grain absolute inset-0 opacity-40" />
                   <div className="absolute inset-0 flex items-end p-5">
-                    <span className="rounded-full bg-black/30 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white/90 backdrop-blur">
+                    <span className="rounded-full bg-black/40 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white/90 backdrop-blur">
                       {p.category}
                     </span>
                   </div>

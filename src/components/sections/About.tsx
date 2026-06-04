@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/effects/Reveal";
 import { timeline } from "@/data/content";
+import portrait from "@/assets/about/portrait.jpg";
 
 const disciplines = [
   "Manuscript Writing",
@@ -34,20 +35,23 @@ export function About() {
 
             <Reveal delay={0.1}>
               <div className="relative mt-10 overflow-hidden rounded-3xl glass p-1">
-                <div
-                  className="relative aspect-[4/5] overflow-hidden rounded-[20px]"
-                  style={{
-                    background:
-                      "radial-gradient(at 30% 20%, color-mix(in oklab, var(--blush) 70%, transparent), transparent 60%), radial-gradient(at 80% 80%, color-mix(in oklab, var(--mauve) 70%, transparent), transparent 60%), linear-gradient(135deg, oklch(0.22 0.04 320), oklch(0.18 0.02 290))",
-                  }}
-                >
-                  <div className="grain absolute inset-0" />
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[20px]">
+                  <img
+                    src={portrait}
+                    alt="Portrait of Sara Johnson at her Karachi studio desk"
+                    loading="lazy"
+                    width={896}
+                    height={1120}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                  <div className="grain absolute inset-0 opacity-40" />
                   <div className="absolute bottom-6 left-6 right-6">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/60">PORTRAIT — 2026</p>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">PORTRAIT — 2026</p>
                     <p className="mt-2 font-display text-3xl text-white">Sara Johnson</p>
-                    <p className="text-sm text-white/70">Creative Freelancer · Karachi, PK</p>
+                    <p className="text-sm text-white/80">Creative Freelancer · Karachi, PK</p>
                   </div>
-                  <div className="absolute right-4 top-4 rounded-full bg-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white/80 backdrop-blur">
+                  <div className="absolute right-4 top-4 rounded-full bg-white/15 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white/90 backdrop-blur">
                     Available
                   </div>
                 </div>
