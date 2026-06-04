@@ -151,40 +151,50 @@ function CaseStudy() {
           </section>
 
           {/* Before / After */}
-          <section className="py-24">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6">
-              <Reveal>
-                <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Before · After</p>
-                <h2 className="mt-4 font-display text-5xl leading-[1] sm:text-6xl">The shift.</h2>
-              </Reveal>
-              <div className="mt-12 grid gap-6 sm:grid-cols-2">
-                {["Before", "After"].map((label, i) => (
-                  <Reveal key={label} delay={i * 0.1}>
-                    <div className="glass overflow-hidden rounded-3xl">
-                      <div
-                        className="aspect-[4/3] w-full"
-                        style={
-                          i === 0
-                            ? { background: "linear-gradient(135deg, oklch(0.28 0.01 280), oklch(0.22 0.01 280))" }
-                            : { background: `linear-gradient(135deg, ${p.cover.from}, ${p.cover.to})` }
-                        }
-                      >
-                        <div className="grain absolute inset-0" />
-                      </div>
-                      <div className="p-5">
-                        <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">{label}</p>
-                        <p className="mt-2 text-sm text-muted-foreground">
-                          {i === 0
-                            ? "Cluttered hierarchy, generic typography, no narrative through-line."
-                            : "Clear voice, deliberate motion, every section earns its place."}
-                        </p>
-                      </div>
-                    </div>
+          {(() => {
+            const ba = getProjectImages(p.slug)?.beforeAfter;
+            if (!ba) return null;
+            const panels = [
+              { ...ba.before, copy: "Cluttered hierarchy, generic typography, no narrative through-line." },
+              { ...ba.after, copy: "Clear voice, deliberate motion, every section earns its place." },
+            ];
+            return (
+              <section className="py-24">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6">
+                  <Reveal>
+                    <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Before · After</p>
+                    <h2 className="mt-4 font-display text-5xl leading-[1] sm:text-6xl">The shift.</h2>
                   </Reveal>
-                ))}
-              </div>
-            </div>
-          </section>
+                  <div className="mt-12 grid gap-6 sm:grid-cols-2">
+                    {panels.map((panel, i) => (
+                      <Reveal key={panel.label} delay={i * 0.1}>
+                        <div className="glass overflow-hidden rounded-3xl">
+                          <div className="relative aspect-[4/3] w-full overflow-hidden">
+                            <img
+                              src={panel.src}
+                              alt={panel.alt}
+                              loading="lazy"
+                              width={1280}
+                              height={960}
+                              className={`absolute inset-0 h-full w-full object-cover ${i === 0 ? "saturate-[0.85]" : ""}`}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                            <span className="absolute left-4 top-4 rounded-full bg-black/60 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.25em] text-white/90 backdrop-blur">
+                              {panel.label}
+                            </span>
+                          </div>
+                          <div className="p-5">
+                            <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">{panel.label}</p>
+                            <p className="mt-2 text-sm text-muted-foreground">{panel.copy}</p>
+                          </div>
+                        </div>
+                      </Reveal>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            );
+          })()}
 
           {/* Results */}
           <section className="py-24">
