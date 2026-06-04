@@ -37,6 +37,13 @@ export const testimonials = [
   },
 ];
 
+import quietWeb from "@/assets/blog/quiet-web.jpg";
+import pricing from "@/assets/blog/pricing.jpg";
+import landingEssays from "@/assets/blog/landing-essays.jpg";
+import singleAccent from "@/assets/blog/single-accent.jpg";
+import copyDesigners from "@/assets/blog/copy-designers.jpg";
+import morningRitual from "@/assets/blog/morning-ritual.jpg";
+
 export const blogPosts = [
   {
     title: "The Quiet Web: Designing for Attention in 2026",
@@ -44,6 +51,7 @@ export const blogPosts = [
     excerpt: "Why the loudest pages lose, and how restraint became the new differentiator.",
     readTime: "6 min",
     accent: "from-blush/40 to-mauve/30",
+    image: quietWeb,
   },
   {
     title: "Pricing Your First Year as a Freelancer",
@@ -51,6 +59,7 @@ export const blogPosts = [
     excerpt: "A framework for raising rates without losing the clients you actually want.",
     readTime: "8 min",
     accent: "from-rose/40 to-blush/30",
+    image: pricing,
   },
   {
     title: "Landing Pages That Behave Like Essays",
@@ -58,6 +67,7 @@ export const blogPosts = [
     excerpt: "Treat the scroll like a paragraph break. A four-part structure that converts.",
     readTime: "5 min",
     accent: "from-mauve/40 to-indigo-glow/30",
+    image: landingEssays,
   },
   {
     title: "Building a Brand on a Single Accent Color",
@@ -65,6 +75,7 @@ export const blogPosts = [
     excerpt: "One color, used consistently, beats a palette of seven that argue with each other.",
     readTime: "7 min",
     accent: "from-blush/40 to-rose/30",
+    image: singleAccent,
   },
   {
     title: "Writing Copy That Designers Won't Resent",
@@ -72,6 +83,7 @@ export const blogPosts = [
     excerpt: "A short guide to writing for layouts that haven't been designed yet.",
     readTime: "4 min",
     accent: "from-indigo-glow/40 to-mauve/30",
+    image: copyDesigners,
   },
   {
     title: "The 90-Minute Morning of a Calm Freelancer",
@@ -79,6 +91,7 @@ export const blogPosts = [
     excerpt: "The ritual that took my output from frantic to predictable.",
     readTime: "5 min",
     accent: "from-rose/40 to-mauve/30",
+    image: morningRitual,
   },
 ];
 
