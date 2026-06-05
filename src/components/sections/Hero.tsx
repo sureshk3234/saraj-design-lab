@@ -4,6 +4,7 @@ import { ArrowRight, Download, Sparkles } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { MagneticButton } from "@/components/effects/MagneticButton";
 import { Counter } from "@/components/ui/Counter";
+import heroBg from "@/assets/hero/bg.jpg";
 
 const roles = [
   "Remote Manuscript Writer",
@@ -30,6 +31,21 @@ export function Hero() {
 
   return (
     <section className="relative pt-36 pb-24 sm:pt-48 sm:pb-32">
+      {/* Premium glassmorphism background motif — sits above page aurora, below content */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-[1] overflow-hidden">
+        <motion.img
+          src={heroBg}
+          alt=""
+          width={1920}
+          height={1280}
+          className="absolute inset-0 h-full w-full object-cover opacity-[0.55] mix-blend-screen dark:opacity-40 dark:mix-blend-plus-lighter"
+          initial={{ scale: 1.08 }}
+          animate={{ scale: [1.08, 1.14, 1.08], x: [0, 12, 0], y: [0, -8, 0] }}
+          transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--background)]/40 via-transparent to-[color:var(--background)]" />
+        <div className="grain absolute inset-0 opacity-30" />
+      </div>
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="relative">
           {/* Floating chips — hidden on small screens */}
