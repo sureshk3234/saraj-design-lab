@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import type { Project } from "@/data/projects";
 import { getProjectImages } from "@/data/projectImages";
+import { HoverFrame } from "@/components/effects/HoverFrame";
 
 export function ProjectCover({
   project,
@@ -30,6 +31,7 @@ export function ProjectCover({
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
       <div className="absolute inset-0 grain opacity-50" />
+      <HoverFrame rounded="rounded-3xl" />
 
       <div className="relative flex h-full flex-col justify-between p-6 sm:p-8">
         <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.25em] text-white/80">

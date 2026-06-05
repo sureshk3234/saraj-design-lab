@@ -1,6 +1,7 @@
 import { Reveal } from "@/components/effects/Reveal";
 import { blogPosts } from "@/data/content";
 import { ArrowUpRight } from "lucide-react";
+import { HoverFrame } from "@/components/effects/HoverFrame";
 
 export function Blog() {
   return (
@@ -24,6 +25,7 @@ export function Blog() {
           {blogPosts.map((p, i) => (
             <Reveal key={p.title} delay={i * 0.05}>
               <article className="group relative h-full overflow-hidden rounded-3xl glass p-1">
+                <HoverFrame rounded="rounded-3xl" />
                 <div className={`aspect-[16/10] rounded-[20px] bg-gradient-to-br ${p.accent} relative overflow-hidden`}>
                   <img
                     src={p.image}

@@ -1,6 +1,7 @@
 import { Reveal } from "@/components/effects/Reveal";
 import { timeline } from "@/data/content";
 import portrait from "@/assets/about/portrait.jpg";
+import { HoverFrame } from "@/components/effects/HoverFrame";
 
 const disciplines = [
   "Manuscript Writing",
@@ -34,7 +35,8 @@ export function About() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <div className="relative mt-10 overflow-hidden rounded-3xl glass p-1">
+              <div className="group relative mt-10 overflow-hidden rounded-3xl glass p-1">
+                <HoverFrame rounded="rounded-3xl" />
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[20px]">
                   <img
                     src={portrait}
@@ -42,7 +44,7 @@ export function About() {
                     loading="lazy"
                     width={1200}
                     height={1200}
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                   <div className="grain absolute inset-0 opacity-40" />
