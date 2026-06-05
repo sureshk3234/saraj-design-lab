@@ -5,6 +5,19 @@ import { Link } from "@tanstack/react-router";
 import { MagneticButton } from "@/components/effects/MagneticButton";
 import { Counter } from "@/components/ui/Counter";
 import heroBg from "@/assets/hero/bg.webp";
+import heroBg320 from "@/assets/hero/bg-320.webp";
+import heroBg640 from "@/assets/hero/bg-640.webp";
+import heroBg1024 from "@/assets/hero/bg-1024.webp";
+import heroBg1600 from "@/assets/hero/bg-1600.webp";
+
+const heroSrcSet = [
+  `${heroBg320} 320w`,
+  `${heroBg640} 640w`,
+  `${heroBg1024} 1024w`,
+  `${heroBg1600} 1600w`,
+  `${heroBg} 1920w`,
+].join(", ");
+const heroSizes = "(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw";
 
 const roles = [
   "Remote Manuscript Writer",
