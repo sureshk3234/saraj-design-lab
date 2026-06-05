@@ -82,8 +82,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Sara Johnson" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "Sara Johnson — Creative Freelancer" },
-      { property: "og:description", content: "Designing creative digital experiences that connect, convert & inspire." },
+      { property: "og:description", content: "Design, writing & motion from Karachi. Portfolio of Sara Johnson — UI/UX, web design, branding, manuscript writing and video editing." },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Sara Johnson — Creative Freelancer" },
+      { name: "twitter:description", content: "Design, writing & motion from Karachi. Portfolio of Sara Johnson — UI/UX, web design, branding, manuscript writing and video editing." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/22d0490b-2ffd-435e-b155-09c537946fd5/id-preview-25ee44fe--12266e9b-1f58-417f-8225-10070fb4d47f.lovable.app-1780659277346.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/22d0490b-2ffd-435e-b155-09c537946fd5/id-preview-25ee44fe--12266e9b-1f58-417f-8225-10070fb4d47f.lovable.app-1780659277346.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
