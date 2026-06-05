@@ -24,9 +24,16 @@ const chips = [
 
 export function Hero() {
   const [idx, setIdx] = useState(0);
+  const [animateBg, setAnimateBg] = useState(false);
   useEffect(() => {
     const t = setInterval(() => setIdx((i) => (i + 1) % roles.length), 2400);
     return () => clearInterval(t);
+  }, []);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const desktop = window.matchMedia("(min-width: 768px)").matches;
+    setAnimateBg(!reduced && desktop);
   }, []);
 
   return (
@@ -38,10 +45,12 @@ export function Hero() {
           alt=""
           width={1920}
           height={1280}
-          className="absolute inset-0 h-full w-full object-cover opacity-[0.55] mix-blend-screen dark:opacity-40 dark:mix-blend-plus-lighter"
-          initial={{ scale: 1.08 }}
-          animate={{ scale: [1.08, 1.14, 1.08], x: [0, 12, 0], y: [0, -8, 0] }}
-          transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover opacity-[0.55] mix-blend-screen will-change-transform dark:opacity-40 dark:mix-blend-plus-lighter"
+          initial={false}
+          animate={animateBg ? { scale: [1.08, 1.14, 1.08], x: [0, 12, 0], y: [0, -8, 0] } : { scale: 1.08 }}
+          transition={animateBg ? { duration: 28, repeat: Infinity, ease: "easeInOut" } : { duration: 0 }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[color:var(--background)]/40 via-transparent to-[color:var(--background)]" />
         <div className="grain absolute inset-0 opacity-30" />
