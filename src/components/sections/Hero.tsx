@@ -4,7 +4,7 @@ import { ArrowRight, Download, Sparkles } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { MagneticButton } from "@/components/effects/MagneticButton";
 import { Counter } from "@/components/ui/Counter";
-import heroBg from "@/assets/hero/bg.jpg";
+import heroBg from "@/assets/hero/bg.webp";
 
 const roles = [
   "Remote Manuscript Writer",
