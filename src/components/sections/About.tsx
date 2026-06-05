@@ -38,10 +38,10 @@ export function About() {
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[20px]">
                   <img
                     src={portrait}
-                    alt="Portrait of Sara Johnson at her Karachi studio desk"
+                    alt="Sara Johnson's marketing workspace with designed social content, brand palettes, and a content calendar"
                     loading="lazy"
-                    width={896}
-                    height={1120}
+                    width={1200}
+                    height={1200}
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
