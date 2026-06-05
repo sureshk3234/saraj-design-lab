@@ -54,7 +54,9 @@ export function Hero() {
       {/* Premium glassmorphism background motif — sits above page aurora, below content */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-[1] overflow-hidden">
         <motion.img
-          src={heroBg}
+          src={heroBg1024}
+          srcSet={heroSrcSet}
+          sizes={heroSizes}
           alt=""
           width={1920}
           height={1280}
