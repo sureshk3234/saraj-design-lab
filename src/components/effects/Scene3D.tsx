@@ -137,22 +137,26 @@ function SceneContents() {
 export function Scene3D() {
   const [enabled, setEnabled] = useState(false);
   const [reduced, setReduced] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mob = window.matchMedia("(max-width: 767px)");
     setReduced(mq.matches);
+    setIsMobile(mob.matches);
     // Defer mounting until idle so it never blocks first paint.
-    const t = setTimeout(() => setEnabled(true), 80);
+    const t = setTimeout(() => setEnabled(true), 120);
     return () => clearTimeout(t);
   }, []);
 
-  if (!enabled || reduced) return null;
+  // Skip the WebGL canvas entirely on mobile / reduced-motion — aurora bg carries the look.
+  if (!enabled || reduced || isMobile) return null;
 
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
       <Canvas
-        dpr={[1, 1.6]}
+        dpr={[1, 1.4]}
         camera={{ position: [0, 0, 7], fov: 55 }}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
         onCreated={({ gl }: { gl: THREE.WebGLRenderer & { setClearColor: (c: number, a: number) => void } }) => {

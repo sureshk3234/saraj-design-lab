@@ -1,6 +1,6 @@
 import { Reveal } from "@/components/effects/Reveal";
 import { timeline } from "@/data/content";
-import portrait from "@/assets/about/portrait.jpg";
+import portrait from "@/assets/about/portrait.webp";
 import { HoverFrame } from "@/components/effects/HoverFrame";
 
 const disciplines = [
