@@ -43,10 +43,17 @@ export function Contact() {
   });
 
   const onSubmit = async (data: FormData) => {
-    await new Promise((r) => setTimeout(r, 600));
-    console.log("contact form", data);
-    toast.success("Message received — I'll reply within 24 hours.");
-    reset();
+    const subject = encodeURIComponent(`New enquiry from ${data.name} — ${data.projectType}`);
+    const body = encodeURIComponent(
+      `Name: ${data.name}\nEmail: ${data.email}\nProject type: ${data.projectType}\nBudget: ${data.budget}\n\n${data.message}`,
+    );
+    try {
+      window.location.href = `mailto:saraahjohnson0345@gmail.com?subject=${subject}&body=${body}`;
+      toast.success("Opening your email app to send the message.");
+      reset();
+    } catch {
+      toast.error("Could not open your email app. Please email saraahjohnson0345@gmail.com directly.");
+    }
   };
 
   return (
