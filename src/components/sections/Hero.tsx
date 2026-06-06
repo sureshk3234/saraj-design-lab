@@ -168,7 +168,22 @@ export function Hero() {
               <Link to="/contact">
                 <MagneticButton variant="glass">Hire Me</MagneticButton>
               </Link>
-              <MagneticButton variant="ghost" asChildHref={resumeAsset.url}>
+              <MagneticButton
+                variant="ghost"
+                asChildHref={resumeAsset.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e: React.MouseEvent) => {
+                  e.preventDefault();
+                  const win = window.open(resumeAsset.url, "_blank");
+                  if (!win) {
+                    toast.info("Opening resume…", {
+                      description: "Your browser blocked the new tab. Downloading the PDF directly.",
+                    });
+                    window.location.href = resumeAsset.url;
+                  }
+                }}
+              >
                 <Download className="h-4 w-4" /> Download Resume
               </MagneticButton>
             </motion.div>
