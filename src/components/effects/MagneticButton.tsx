@@ -1,14 +1,24 @@
-import { useRef, type ButtonHTMLAttributes, type ReactNode } from "react";
+import { useRef, type ButtonHTMLAttributes, type AnchorHTMLAttributes, type ReactNode } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: ReactNode;
-  variant?: "primary" | "ghost" | "glass";
-  asChildHref?: string;
-};
+type Props = ButtonHTMLAttributes<HTMLButtonElement> &
+  Pick<AnchorHTMLAttributes<HTMLAnchorElement>, "href" | "target" | "rel" | "download"> & {
+    children: ReactNode;
+    variant?: "primary" | "ghost" | "glass";
+    asChildHref?: string;
+  };
 
-export function MagneticButton({ children, className, variant = "primary", asChildHref, ...rest }: Props) {
+export function MagneticButton({
+  children,
+  className,
+  variant = "primary",
+  asChildHref,
+  target,
+  rel,
+  onClick,
+  ...rest
+}: Props) {
   const ref = useRef<HTMLButtonElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -41,7 +51,10 @@ export function MagneticButton({ children, className, variant = "primary", asChi
     return (
       <a
         href={asChildHref}
+        target={target}
+        rel={rel}
         data-magnetic
+        onClick={onClick as never}
         onMouseMove={handleMove as never}
         onMouseLeave={reset}
         className={cn(
@@ -66,7 +79,7 @@ export function MagneticButton({ children, className, variant = "primary", asChi
         styles,
         className,
       )}
-      onClick={rest.onClick}
+      onClick={onClick}
       type={rest.type as "button" | "submit" | "reset" | undefined}
       disabled={rest.disabled}
     >
