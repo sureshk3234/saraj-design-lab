@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ArrowRight, Download, Sparkles } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { toast } from "sonner";
 import { MagneticButton } from "@/components/effects/MagneticButton";
 import { Counter } from "@/components/ui/Counter";
 import heroBg from "@/assets/hero/bg.webp";
