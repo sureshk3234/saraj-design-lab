@@ -5,6 +5,7 @@ import { Link } from "@tanstack/react-router";
 import { MagneticButton } from "@/components/effects/MagneticButton";
 import { Counter } from "@/components/ui/Counter";
 import heroBg from "@/assets/hero/bg.webp";
+import resumeAsset from "@/assets/resume.pdf.asset.json";
 import heroBg320 from "@/assets/hero/bg-320.webp";
 import heroBg640 from "@/assets/hero/bg-640.webp";
 import heroBg1024 from "@/assets/hero/bg-1024.webp";
@@ -166,7 +167,7 @@ export function Hero() {
               <Link to="/contact">
                 <MagneticButton variant="glass">Hire Me</MagneticButton>
               </Link>
-              <MagneticButton variant="ghost" asChildHref="/resume.pdf">
+              <MagneticButton variant="ghost" asChildHref={resumeAsset.url}>
                 <Download className="h-4 w-4" /> Download Resume
               </MagneticButton>
             </motion.div>
